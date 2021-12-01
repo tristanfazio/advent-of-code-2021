@@ -43,11 +43,19 @@ fun main() {
         return counter
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-//    check(part1(testInput) == 1)
+    fun part1refined(input: List<String>): Int {
+        val list = input.map { it.toInt() }
+        return list.windowed(2).count {(a,b) -> a < b }
+    }
 
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    fun part2refined(input: List<String>): Int {
+        val list = input.map { it.toInt() }
+        return list.windowed(4).count {(a,b,c,d) -> a < d }
+    }
+
+    val input = readInput("day1/Day01")
+    println("part1:${part1(input)}")
+    println("part2:${part2(input)}")
+    println("part1refined:${part1refined(input)}")
+    println("part2refined:${part2refined(input)}")
 }
