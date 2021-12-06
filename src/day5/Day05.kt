@@ -47,11 +47,9 @@ fun main() {
             val coordinate2 = createCoordinateFromSplit(splitLine[1])
 
             //traverse
-            val steps: Int = if(abs(coordinate1.x - coordinate2.x) > 0) {
-                abs(coordinate1.x - coordinate2.x)
-            } else {
-                abs(coordinate1.y - coordinate2.y)
-            }
+            val steps: Int =
+                if (abs(coordinate1.x - coordinate2.x) > 0) abs(coordinate1.x - coordinate2.x) else abs(coordinate1.y - coordinate2.y)
+
             for (i in 0..steps) {
                 val nextx = nextStep(i, coordinate1.x, coordinate2.x)
                 val nexty = nextStep(i, coordinate1.y, coordinate2.y)
