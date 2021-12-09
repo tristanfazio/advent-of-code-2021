@@ -14,7 +14,7 @@ fun main() {
         input.forEach { line ->
             val output = line.split(" | ")[1]
             output.split(" ").forEach { digit ->
-                if(digits.contains(digit.length)) count++
+                if (digits.contains(digit.length)) count++
             }
         }
         return count
@@ -23,23 +23,23 @@ fun main() {
     fun part2(input: List<String>): Int {
         var sum = 0
         input.forEach { line ->
-            val digitMap = mutableMapOf<Int,Set<Char>>()
+            val digitMap = mutableMapOf<Int, Set<Char>>()
             //split the line
             val signalSets = line.split(" | ")[0].split(" ").map { it.toSet() }
             val outputSets = line.split(" | ")[1].split(" ").map { it.toSet() }
             //for each signal in the line
-            digitMap[1] = signalSets.find (2)
-            digitMap[4] = signalSets.find (4)
-            digitMap[7] = signalSets.find (3)
-            digitMap[8] = signalSets.find (7)
-            digitMap[9] = signalSets.find (6) { it.containsAll(digitMap[4]!!) }
-            digitMap[0] = signalSets.find (6) { it.containsAll(digitMap[7]!!) && !it.containsAll(digitMap[4]!!) }
-            digitMap[6] = signalSets.find (6) { it != digitMap[9] && it != digitMap[0] }
-            digitMap[3] = signalSets.find (5) { it.containsAll(digitMap[1]!!) }
-            digitMap[5] = signalSets.find (5) { digitMap[6]?.containsAll(it)!! }
-            digitMap[2] = signalSets.find (5) { it != digitMap[3] && it != digitMap[5] }
+            digitMap[1] = signalSets.find(2)
+            digitMap[4] = signalSets.find(4)
+            digitMap[7] = signalSets.find(3)
+            digitMap[8] = signalSets.find(7)
+            digitMap[9] = signalSets.find(6) { it.containsAll(digitMap[4]!!) }
+            digitMap[0] = signalSets.find(6) { it.containsAll(digitMap[7]!!) && !it.containsAll(digitMap[4]!!) }
+            digitMap[6] = signalSets.find(6) { it != digitMap[9] && it != digitMap[0] }
+            digitMap[3] = signalSets.find(5) { it.containsAll(digitMap[1]!!) }
+            digitMap[5] = signalSets.find(5) { digitMap[6]?.containsAll(it)!! }
+            digitMap[2] = signalSets.find(5) { it != digitMap[3] && it != digitMap[5] }
 
-            var numberList = mutableListOf<Int>()
+            val numberList = mutableListOf<Int>()
             outputSets.forEach { digitSet ->
                 val digit = digitMap.filterValues { it == digitSet }.keys.single()
                 numberList.add(digit)
