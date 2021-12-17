@@ -1,4 +1,4 @@
-package day7
+package dayX
 
 import readInput
 
@@ -13,11 +13,21 @@ fun main() {
         return 0
     }
 
-    val input = readInput("day7/Day07")
-    val test = readInput("day7/Day07_test")
-    println("test part1: ${part1(test)}")
-    println("test part2: ${part2(test)}")
+    val input = readInput("dayX/DayX")
+    val test = readInput("dayX/DayX_test")
 
-//    println("part1: ${part1(input)}")
-//    println("part2: ${part2(input)}")
+    val partOneTest = part1(test)
+    println("test part1: $partOneTest")
+    check(partOneTest == 1656)
+
+//    val partOneInput = part1(input)
+//    println("part1: $partOneInput")
+//    check(partOneInput == 1617)
+////
+//    val partTwoTest = part2(test)
+//    println("test part2: $partTwoTest")
+//    check(partTwoTest == 195)
+////
+//    val partTwoInput = part2(input)
+//    println("part2: $partTwoInput")
 }
