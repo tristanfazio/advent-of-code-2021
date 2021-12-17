@@ -27,3 +27,25 @@ fun convertBinaryToDecimal(num: Long): Int {
     }
     return decimalNumber
 }
+
+data class GridCell(val x: Int, val y: Int)
+
+fun parseMap(map: Array<Array<Int>>, input: List<String>) {
+    input.forEachIndexed { y, row ->
+        val cells = row.map { it.toString().toInt() }
+        cells.forEachIndexed { x, cell ->
+            map[y][x] = cell
+        }
+    }
+}
+
+enum class Directions(val dX: Int, val dY: Int) {
+    NORTHWEST(-1, -1),
+    NORTH(0, -1),
+    NORTHEAST(1, -1),
+    WEST(-1, 0),
+    EAST(1, 0),
+    SOUTHWEST(-1, 1),
+    SOUTH(0, 1),
+    SOUTHEAST(1, 1)
+}
